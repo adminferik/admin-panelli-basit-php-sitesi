@@ -1,0 +1,20 @@
+RewriteEngine On
+
+
+#Rewritecond %{HTTP_HOST} ^localhost [NC]
+#Rewriterule ^(.*)$ http://localhost/$1 [L,R=301,NC] 
+
+ErrorDocument 404 http://http://localhost/www/porto/404.php
+
+RewriteRule ^hakkimizda$ hakkimizda.php [NC,L]
+RewriteRule ^arama$ arama.php [NC,L]
+RewriteRule ^biza-ulasin$ iletisim.php [NC,L]
+RewriteRule ^haberler$ haberler.php [NC,L]
+RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
+
+RewriteRule ^([0-9a-zA-Z-_]+)-([0-9]+)$ haber-detay.php?sef=$1&icerik_id$2 [L,QSA]
+
+RewriteRule ^sayfalar-([0-9a-zA-Z-_]+)-([0-9]+)$ haber-detay.php?sef=$1+icerik_id$2 [L,QSA]
+RewriteRule ^urunler/([0-9a-zA-Z-_]+)/([0-9]+)$ urunler.php?sef=$1&urun_id=$2 [L,QSA]
+RewriteRule ^kategoriler/([0-9a-zA-Z-_]+) kategoriler.php?sef=$1 [L,QSA]
+RewriteRule ^urun-detay/([0-9a-zA-Z-_]+)/([0-9]+)$ urun-detay.php?sef=$1&urun_id=$2 [L,QSA]
